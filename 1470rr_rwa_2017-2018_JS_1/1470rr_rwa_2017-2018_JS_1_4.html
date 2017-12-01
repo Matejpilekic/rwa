@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<h1>Zadatak 4</h1>
+<script>
+	
+	var aritmetickaSredina=function(broj1,broj2){
+		//console.log(broj1,broj2);
+		if(isNaN(broj1) || isNaN(broj2)){
+			console.log("pogresan unos");
+			alert("pogresan unos");
+		}
+		else{
+			var sredina;
+			var suma;
+			suma=broj1+broj2;
+			sredina=parseFloat(suma/2);
+			console.log(sredina);
+			document.write("Aritmetička sredina brojeva "+broj1+" i "+broj2+" je : "+sredina);
+		}
+	}
+
+
+	var num1=parseInt(prompt("unesite prvi broj"));
+	var num2=parseInt(prompt("unesite drugi broj"));
+
+	aritmetickaSredina(num1,num2);
+	
+</script>
+
+
+</html>

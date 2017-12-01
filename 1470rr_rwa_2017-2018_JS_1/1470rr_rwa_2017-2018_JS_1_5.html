@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<h1>Zadatak 5</h1>
+<script>
+
+	var jmbg = prompt("Unesite JMBG:");
+
+	provjeraIispisJMBG(jmbg);
+
+	function provjeraIispisJMBG(Jmbg){
+
+		jmbgString = Jmbg.toString();
+
+		var jmbg = [];
+
+		for(var i = 0; i < jmbgString.length; i++){
+			jmbg.push(parseInt(jmbgString[i]));
+		}
+
+		if(jmbgString.length != 13){
+			alert("JMBG mora zadrzavati 13 znakova");
+			return;
+		}
+
+		var kontrolnaCifra = 11 - ((7*(jmbg[0]+jmbg[6]) + 6*(jmbg[1]+jmbg[7]) + 5*(jmbg[2]+jmbg[8]) + 4*(jmbg[3]+jmbg[9]) + 3*(jmbg[4]+jmbg[10]) + 2*(jmbg[5]+jmbg[11])) % 11);
+
+		if(kontrolnaCifra > 9){
+			kontrolnaCifra = 0;
+		}
+		
+		if(kontrolnaCifra != jmbg[12]){
+			alert("Pogresan unos!");
+			return;
+		}
+
+		var dan = parseInt(jmbgString.slice(0,2));
+		//console.log(dan);
+		var mjesec = parseInt(jmbgString.slice(2,4));
+		var god = parseInt(jmbgString.slice(4,7));
+		var region = parseInt(jmbgString.slice(7,9));
+		var broj = parseInt(jmbgString.slice(9,12));
+
+		if(god < 800){
+			god += 2000;
+		} 
+		else {
+			god += 1000;
+		}
+
+		if(dan > 0 && dan <= 31 && mjesec > 0 && mjesec <= 12){
+			document.write("Datum rodjenja: " + dan + "." + mjesec + "." + god + "<br>");
+		} else {
+			alert("Pogresan unos!");
+			return;
+		}
+
+		var mjesto;
+		switch(region){
+			case 10:
+				mjesto = "Banja luka";
+				break;
+			case 11:
+				mjesto = "Bihac";
+				break;
+			case 12:
+				mjesto = "Doboj";
+				break;
+			case 13:
+				mjesto = "Gorazde";
+				break;
+			case 14:
+				mjesto = "Livno";
+				break;
+			case 15:
+				mjesto = "Mostar";
+				break;
+			case 16:
+				mjesto = "Prijedor";
+				break;
+			case 17:
+				mjesto = "Sarajevo";
+				break;
+			case 18:
+				mjesto = "Tuzla";
+				break;
+			case 19:
+				mjesto = "Zenica";
+				break;
+			default:
+				mjesto = "Nije u sustavu";
+				alert("Pogresan unos!");
+				return;
+		}
+
+		document.write("Mjesto rodjenja: " + mjesto + "<br>");
+
+		var spol;
+		if(broj > 0 && broj < 500){
+			spol = "Muški";
+		} 
+		else if (broj > 499 && broj < 1000) {
+			spol = "Ženski";
+		}
+		else {
+			alert("Pogrešan unos!");
+			return;
+		}
+
+		document.write("Spol: " + spol);
+	}
+
+</script>
+</body>
+</html>

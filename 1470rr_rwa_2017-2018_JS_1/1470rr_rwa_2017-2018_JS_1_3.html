@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script type="text/javascript">
+            function Faktorijel(n){
+            var broj=1;
+            for(var i=1; i<=n; i++){
+            	broj *= i;
+            }
+                return broj;
+            }
+        </script>
+
+    </head>
+    <body>
+            <h1>Zadatak 3</h1>
+        <script>
+            var i,n;
+            n=parseInt(prompt("unesite broj dok kojege zelite faktorijele"));
+            for(i=1;i<=n;i++){
+                document.write(i+"! ="+Faktorijel(i)+"<br>");
+            }
+        </script>
+    </body>
+</html>
